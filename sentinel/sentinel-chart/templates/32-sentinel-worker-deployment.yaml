@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sentinel-worker
+  labels:
+    app: sentinel-worker
+  namespace: "{{ .Values.namespace }}"
+spec:
+  # prettier-ignore
+  replicas: {{ .Values.deployment.agent.replicas }}
+  selector:
+    matchLabels:
+      app: sentinel-worker
+  template:
+    metadata:
+      labels:
+        app: sentinel-worker
+    spec:
+      containers:
+        - name: sentinel-worker
+          image: "{{ .Values.deployment.agent.image }}:{{ .Values.deployment.agent.tag }}"
+          imagePullPolicy: Always
+          env:
+            - name: VERITEOS_API_KEY
+              value: "{{ .Values.deployment.apiKey }}"
+            - name: VERITEOS_API_HOST
+              value: "{{ .Values.deployment.apiHost }}"
+            - name: VERITEOS_API_VERSION
+              value: "v1"
+            - name: KAFKA_BOOTSTRAP_SERVER
+              value: "sentinel-redpanda:9092"
+            - name: POST_EVENT_URL
+              value: /events/
+            - name: POST_HEARTBEAT_URL
+              value: /sentinel_heartbeat_events/
+            - name: GET_INDIVIDUAL_EVENT
+              value: /events/
+            - name: GET_HEARTBEAT_EVENT
+              value: /sentinel_heartbeat_events/
+          ports:
+            - containerPort: 8000
+              name: http
+              protocol: TCP

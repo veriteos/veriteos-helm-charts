@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sentinel-server
+  namespace: "{{ .Values.namespace }}"
+  annotations:
+    cloud.google.com/load-balancer-type: "Internal"
+  labels:
+    app: sentinel-server
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8000
+  selector:
+    app: sentinel-server

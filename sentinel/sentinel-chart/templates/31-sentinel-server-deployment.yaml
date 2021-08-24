@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sentinel-server
+  labels:
+    app: sentinel-server
+  namespace: "{{ .Values.namespace }}"
+spec:
+  # prettier-ignore
+  replicas: {{ .Values.deployment.server.replicas }}
+  selector:
+    matchLabels:
+      app: sentinel-server
+  template:
+    metadata:
+      labels:
+        app: sentinel-server
+    spec:
+      containers:
+        - name: sentinel-server
+          image: "{{ .Values.deployment.server.image }}:{{ .Values.deployment.server.tag }}"
+          imagePullPolicy: Always
+          env:
+            - name: KAFKA_BOOTSTRAP_SERVER
+              value: "sentinel-redpanda:9092"
+            - name: SENTINEL_NAME
+              value: "{{ .Values.deployment.agent.name }}"
+            - name: SENTINEL_VERSION
+              value: "0.0.1"
+            - name: ENVIRONMENT_NAME
+              value: "{{ .Values.deployment.environment }}"
+          ports:
+            - containerPort: 8000
+              name: http
+              protocol: TCP
