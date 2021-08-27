@@ -9,24 +9,28 @@ Current chart version is `0.1.0`
 
 ## Installation
 
+Charts are published to https://veriteos-charts.storage.googleapis.com/charts.
+
 Run the following commands to add the repository
 
+veriteos-charts/charts
+
 ```
-helm repo add veriteos-charts #TODO
+helm repo add veriteos-charts https://veriteos-charts.storage.googleapis.com/charts
 helm repo update
 ```
 
 Install Sentinel
 
 ```
-helm install sentinel-release veriteos-charts/sentinel
+helm install sentinel-release veriteos-charts/sentinel-chart
 ```
 
 ## Customize your installation
 
 This Veriteos chart comes with a `values.yaml` file that allows for configuration and customization of all sub-charts.
 
-For more details, please see: #TODO add values.yaml details
+Please note that you will need to provide a valid API key inside `values.yaml` key for the sentinel to function properly.
 
 ## Chart Values
 

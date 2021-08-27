@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  sentinel-chart:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2021-08-27T12:37:51.650043+03:00"
+    description: A Helm chart to deploy veriteos-charts/sentinel app.
+    digest: ed315f40e9bfd262af1e555c1d86a3acec54dc260be2923c17801ff3291be9ea
+    name: sentinel-chart
+    type: application
+    urls:
+    - sentinel-chart-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-08-27T12:37:51.649577+03:00"
