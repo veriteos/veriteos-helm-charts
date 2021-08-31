@@ -11,14 +11,14 @@ deployment:
   environment: "dev"
 
   server:
-    image: "veriteos/sentinel-server"
-    tag: "0.0.1"
+    image: "veriteospublic/sentinel-server"
+    tag: "0.0.5"
     replicas: 1
 
   agent:
     name: "companyName"
-    image: "veriteos/sentinel-worker"
-    tag: "0.0.3"
+    image: "veriteospublic/sentinel-worker"
+    tag: "0.0.5"
     replicas: 1
 
   redpanda:

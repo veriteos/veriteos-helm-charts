@@ -3,6 +3,6 @@ name: sentinel-chart
 description: A Helm chart to deploy veriteos-charts/sentinel app.
 type: application
 #chart Version
-version: 0.1.0
+version: 0.1.1
 #app version
-appVersion: "0.1.0"
+appVersion: "0.1.1"
