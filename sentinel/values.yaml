@@ -18,7 +18,7 @@ deployment:
   agent:
     name: "companyName"
     image: "veriteospublic/sentinel-worker"
-    tag: "0.0.5"
+    tag: "0.0.6"
     replicas: 1
 
   redpanda:
