@@ -5,7 +5,7 @@ This repo contains all Veriteos Helm charts and their configuration options.
 ## Chart: Sentinel
 
 Custom event monitoring server and agent.
-Current chart version is `0.1.0`
+Current chart version is `0.1.1`
 
 ## Installation
 
@@ -21,6 +21,12 @@ helm repo update
 ```
 
 Install Sentinel
+
+### In case you've previously installed a veriteos chart and skipped the previous add & update phase, make sure to update there repo before install, otherwise your release might be with an outdated version
+
+```
+helm repo update
+```
 
 ```
 helm install sentinel-release veriteos-charts/sentinel-chart
