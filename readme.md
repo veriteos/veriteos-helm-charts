@@ -7,6 +7,15 @@ This repo contains all Veriteos Helm charts and their configuration options.
 Custom event monitoring server and agent.
 Current chart version is `0.1.1`
 
+## Prerequisits
+
+To use the charts here, Helm must be configured for your Kubernetes cluster. Setting up Kubernetes and Helm is outside the scope of this README. Please refer to the Kubernetes and Helm documentation.
+
+The versions required are:
+
+Helm 3.5+ - This is the earliest version of Helm tested. It is possible it works with earlier versions but this chart is untested for those versions.
+Kubernetes 1.15+ - This is the earliest version of Kubernetes tested. It is possible that this chart works with earlier versions but it is untested.
+
 ## Installation
 
 Charts are published to https://veriteos-charts.storage.googleapis.com/charts.
